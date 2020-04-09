@@ -1,5 +1,9 @@
+<!-- form_with is newer version of form_for. It give you more flexibility with styling the form 
+since it doesn't automatically attach ids and classes to the form. PLUS form_with can be used 
+without a model. In this case multipart:true  allows for a thumbnail image upload -->
+
 <%= form_with(model: project, local: true, multipart: true) do |form| %>
-<!--multipart allows us to add a featured image-->
+
   <% if project.errors.any? %>
     <div id="error_explanation" class="p6 mb-5 text-red-500 bg-white rounded">
       <h2 class="font-bold text-red-500"><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
