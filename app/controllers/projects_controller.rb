@@ -3,7 +3,7 @@ class ProjectsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show] #authenticate_user! is a devise method
 
   def index
-    @projects = Project.all
+    @projects = Project.active
   end
 
   def show
