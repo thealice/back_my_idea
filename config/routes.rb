@@ -2,7 +2,10 @@ require 'sidekiq/web'
 
 Rails.application.routes.draw do
   get 'comments/create'
-  resources :projects
+  resources :projects do
+    resources :comments, module: :projects #nests comments within projects and sets
+    # scope for controllers/projects/comments_controller.rb
+  end
   root to: 'projects#index'
   
   authenticate :user, lambda { |u| u.admin? } do
