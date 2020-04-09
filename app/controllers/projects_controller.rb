@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:index, :show] #authenticate_user! is a device method
+  before_action :authenticate_user!, except: [:index, :show] #authenticate_user! is a devise method
 
   def index
     @projects = Project.all
